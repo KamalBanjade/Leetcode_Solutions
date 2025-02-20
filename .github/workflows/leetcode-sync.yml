@@ -20,6 +20,9 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Clean solutions directory
+        run: rm -rf solutions  # Deletes the directory entirely
+
       - name: Run sync script
         env:
           LEETCODE_SESSION: ${{ secrets.LEETCODE_SESSION }}
@@ -29,6 +32,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@github.com"
+          git pull origin main --rebase  # Fetch and rebase remote changes
           git add .
           git commit -m "Auto-sync LeetCode solutions" || echo "No changes to commit"
           git push
