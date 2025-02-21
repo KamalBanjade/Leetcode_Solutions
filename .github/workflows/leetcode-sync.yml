@@ -32,9 +32,9 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions@github.com"
-          git pull origin main --rebase  # Fetch and rebase remote changes
           git add .
           git commit -m "Auto-sync LeetCode solutions" || echo "No changes to commit"
+          git pull origin main --rebase  # Pull after committing local changes
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
