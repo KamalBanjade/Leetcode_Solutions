@@ -2,7 +2,7 @@ name: Auto Sync LeetCode Solutions
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Runs daily at midnight
+    - cron: "24 16 * * *" # Runs daily at 16:24 UTC
   workflow_dispatch: # Allows manual trigger
 
 jobs:
